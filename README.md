@@ -6,11 +6,11 @@ The dataset is taken from Kaggle. [Here](https://www.kaggle.com/sangarshanan/med
 
 ## Files
 ### Main file 
-This is the text_generator.py file. This contains the training code as well as the text generating (predicting) code. The file has 3 modes: exp, train and generate; determined by the variable 'mode'. Below I explain the difference between each of these.
+This is the text_generator.py file. This contains the training code as well as the text generating (predicting) code. The file has 3 modes: exp, train and generate; determined by the variable 'mode'. Below I explain the difference between each of the modes. The model I have used for text generation is sequential with a single LSTM layer having 256 units, a Dropout layer and a Dense layer with softmax activation. Adding a second LSTM layer will improve performance of the model but will also take longer to run due to increased computations.   
 
 exp - If the mode variable is set to this, the file will neither train nor generate any text. In this mode, the different steps of data processing are shown by printing the data at every step of its preprocessing. This helped me to understand the process better as it helps to visualise the data and the way it is being transformed along the way. 
 
-train - Selecting this as the mode will start training of the model on whatever input is provided at the top of the file. The training process consists of callbacks each time the model's loss improves (decreases) at the end of an epoch. Therefore the weights that produce the best loss are iteratively saved as .hdf5 files. 
+train - Selecting this as the mode will start training of the model on whatever input is provided at the top of the file. The training process consists of a callback each time the model's loss improves (decreases) at the end of an epoch. Therefore the weights that produce the best loss are iteratively saved to .hdf5 files. 
 
 generate - This mode takes the specified .hdf5 file and loads the weights from there. Once loaded and compiled, the model is used to make predictions given a random seed of 'n' characters (n set to 100 by default).
 
