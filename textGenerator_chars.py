@@ -116,16 +116,17 @@ def main():
 	model.add(LSTM(256, input_shape=(X.shape[1], X.shape[2])))
 	model.add(Dropout(0.1))
 	model.add(Dense(y.shape[1], activation='softmax'))
+	model.compile(loss='categorical_crossentropy', optimizer='adam')
+	print(model.summary())
 
 	if mode is 'train': 
-		model.compile(loss='categorical_crossentropy', optimizer='adam')
 		#Define checkpoint to create a weight-file after every epoch
 		filepath = "weights-improvement-9-{epoch:02d}-{loss:.4f}.hdf5"
 		checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
 		callbacks_list = [checkpoint]
 		#fit the model with callbacks to the checkpoint
 		model.fit(X, y, epochs=epoch_num, batch_size=64, callbacks=callbacks_list)
-		print("\n~Fin~")
+		print("\n\t\t~Fin~\n")
 	elif mode is 'generate':
 		best_file = "weights-improvement-9-20-2.6431.hdf5"
 		model.load_weights(best_file)
@@ -148,11 +149,12 @@ def main():
 			sys.stdout.write(result)														#print(result, end="")
 			pattern.append(index)															#Add generated character to the input sequence
 			pattern = pattern[1:len(pattern)]												#Maintain constant length of input sequence
-		print("\n~Fin~")
+		print("\n\t\t~Fin~\n")
 	elif mode is 'exp':
-		print("~Fin~")
+		print("\n\t\t~Fin~\n")
 	else:
 		print("[ModeError] Select mode from: [generate / train / exp], all case-sensitive.")
+		print("\n\t\t~Fin~\n")
 
 def prepare(txt):
 	#Change to lowercase and remove punctuations.
