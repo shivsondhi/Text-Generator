@@ -51,7 +51,7 @@ from keras.utils import np_utils
 
 def main():
 	global model
-	modes = ['exp', 'train', 'generate', 'none']													#mode is either 'exp', 'train' or 'generate'
+	modes = ['exp', 'train', 'generate']												#mode is either 'exp', 'train' or 'generate'
 	mode = modes[0]
 	
 	#Variable parameters

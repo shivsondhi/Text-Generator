@@ -89,6 +89,7 @@ def main():
 		checkpoint = ModelCheckpoint(savepath, monitor="loss", verbose=1, save_best_only=True, mode="min")
 		callbacks_list = [checkpoint]
 		model.fit(predictors, label, epochs=num_epochs, verbose=5, callbacks=callbacks_list)
+		print("\n\t\t~Fin~\n")
 	elif mode == 'generate':
 		#GENERATE
 		best_file = "second_weights-improvement-100-0.8083.hdf5"
@@ -102,6 +103,7 @@ def main():
 			generated_headline = generate_text(tokenizer, seed_text, next_words, model, max_sequence_len)
 			print(generated_headline, end="\n\n")
 			i += 1
+			print("\n\t\t~Fin~\n")
 	elif mode == 'retrain':
 		#RETRAIN
 		best_file = "weightsFile_for_words\\second_weights-improvement-100-1.2642.hdf5"
@@ -111,6 +113,7 @@ def main():
 		checkpoint = ModelCheckpoint(savepath, monitor="loss", verbose=1, save_best_only=True, mode="min")
 		callbacks_list = [checkpoint]
 		model.fit(predictors, label, epochs=num_epochs, verbose=5, callbacks=callbacks_list)
+		print("\n\t\t~Fin~\n")
 	else:
 		print("\n\t\t~Fin~\n")
 
