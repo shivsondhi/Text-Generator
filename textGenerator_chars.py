@@ -6,6 +6,38 @@ Notes:-
 	All other TRIALs are run on the first article in the MediumArticles.csv dataset.
 
 	To change total_chars you can change the article selected from the dataset or use any other text data and feed it to the variable 'raw_text'.
+
+TRIAL ONE:  	total chars = 818  &&  epoch_num = 20  &&  seq_len = 40 -
+.						best LOSS = 2.9146
+.						results in only blank spaces - no words generated, no chars generated.
+            
+TRIAL TWO:  	total chars = 1535  &&  epoch_num = 50  &&  seq_len = 40 -
+.					  	best LOSS = 2.4977
+.					  	results in lots of chars separated by spaces. Most 'words' are two letters, some are three and very few are four.
+            
+TRIAL THREE: 	total chars = 818  &&  epoch_num = 50  &&  seq_len = 40 -
+.					    best LOSS = 2.7519
+.					    results in some chars. However it is just a sequence of "oo t" repeated over and over till the end.
+              
+TRIAL FOUR: 	total chars = 1535  &&  epoch_num = 20  &&  seq_len = 40 -
+.					    best LOSS = 2.8652
+.					    results in only blank spaces - no words generated, no chars generated.
+              
+TRIAL FIVE: 	total chars = 11932  &&  epoch_num = 20  &&  seq_len = 40 -
+.					    best LOSS = 2.6772
+.					    results in repeated sequence of "ah thet aod thet ao" which actually started with "th tee".
+              
+TRIAL SIX: 		total chars = 11932  &&  epoch_num = 50  &&  seq_len = 40 - 
+.   					best LOSS = 0.9772!!!
+.		    			obviously results here are the best. Words of all sizes and barely any repitition. There are a few English words but most words are just gibberish or close attempts at words. Upto 11 letter words!
+              
+TRIAL SEVEN: 	total chars = 11932  &&  epoch_num = 20  &&  seq_len = 16 - 
+. 		  				best LOSS = 2.6503
+.	    				results in "aod toet aod toet aod toet " repeatedly.
+
+TRIAL EIGHT: 	total chars = 11932  &&  epoch_num = 20  &&  seq_len = 100 -
+.					    best LOSS = 2.6431
+.					    epochs take longer to run, no definite repitition of words, but there is a lot of repitition of characters. All words are 2 or 3 letters long with a few 4 letter words here and there.
 '''
 
 import sys
