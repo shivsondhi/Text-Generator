@@ -3,22 +3,15 @@ Text Generator - Generates text word by word.
 
 TRIAL ONE : 	Epochs = 100; 	Headlines = 1100;	Time = 607.2s
 				.	Loss - 1.0940
-				.	Results - "govt to work case before to" repeated everywhere.
 				+50 epochs:							Time = ?
 				.	Loss - 0.5324
-				.	Results - "govt canvassing ways to improve child development rate" repeats everywhere
 				+75 epochs:							Time = ?
 				.	Loss - 0.2862
-				.	Results - "govt paper discusses preservation of adelaide..."
-				Final Takeaway - Any seed word that the machine does not know, it says the same "govt.." thing.
-				.				Some words give good headlines, others just start with the govt rant.
 
 TRIAL TWO : 	Epochs = 100; 	Headlines = 5000; 	Time = 3176.3s
 				.	Loss - 1.26420
-				.	Results - Certainly made a difference, there's barely any repetition of phrases.
 				+100 epochs:						Time = 3088.5s
 				.	Loss - 0.8083
-				.	Results - Found the repeating sentence! - "to offer on broken away from asylum city attack..." Might need to train more.
 '''
 
 from keras.models import Sequential
