@@ -26,9 +26,9 @@ The two `textGenerator.py` files first train the model and then generating / pre
 **generate** - The file generates text from a random seed of n characters. It takes a .hdf5 file, loads weights from it, compiles the model and finally makes predictions. The default seed is 100 characters long.
 
 #### Modes: `word-by-word` 
-**none** - Same as the `exp` mode above.
+**none** - Same as **exp** above.
 
-**train** - Same as the `train` mode above.  
+**train** - Same as **train** above.  
 
 **retrain** - The file continues training the model from a specific checkpoint. The weights are loaded from file and after compilation the model will continue training from here. Some things to note - the epoch numbers restart from 1 when you retrain the model. Keras provides a `start_from` argument in its `fit` and `fit_generator` methods, but it wouldn't work without throwing an error so I worked around this manually. As a consequence, new weight files may overwrite older ones if they have the same name, so it is best to rename weight files after retraining. 
 
